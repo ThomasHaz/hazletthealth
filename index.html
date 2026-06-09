@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:title" content="Dr Richard Hazlett — Medical Cannabis Physician">
+<meta property="og:description" content="Clinical commentary, research discussion, and reflections on the practice of cannabis medicine.">
+<meta property="og:url" content="https://hazletthealth.co.uk">
+<meta property="og:type" content="website">
+<meta name="description" content="Clinical commentary, research discussion, and reflections on the practice of cannabis medicine — written by Dr Richard Hazlett, GP and medical cannabis physician.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -2086,13 +2091,17 @@ function toggleAbout() {
 function copyArticleLink() {
   navigator.clipboard.writeText(window.location.href).then(function() {
     const btn = document.getElementById('copyLinkBtn');
-    btn.title = 'Copied!';
     btn.style.background = 'var(--green-700, #2d6a4f)';
     btn.style.color = '#fff';
+    const notice = document.createElement('span');
+    notice.textContent = 'Link copied!';
+notice.style.cssText = 'position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); background:#fff; color:var(--green-700, #2d6a4f); border:1px solid var(--green-700, #2d6a4f); padding:0.35rem 0.85rem; border-radius:4px; font-size:0.85rem; white-space:nowrap; pointer-events:none;';    btn.style.position = 'relative';
+    btn.appendChild(notice);
     setTimeout(function() {
-      btn.title = 'Copy link';
       btn.style.background = '';
       btn.style.color = '';
+      btn.style.position = '';
+      btn.removeChild(notice);
     }, 2000);
   });
 }
