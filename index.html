@@ -1212,6 +1212,91 @@
 </head>
 <body>
 
+  <!-- ── CONSENT BANNER ── -->
+<div id="consent-banner" style="display:none;">
+  <div class="consent-card">
+    <p class="consent-title">Cookie preferences</p>
+    <p class="consent-body">This site uses Google Analytics to understand how visitors find and use it. Umami analytics runs without cookies and requires no consent.</p>
+    <div class="consent-buttons">
+      <button id="consent-decline">Decline</button>
+      <button id="consent-accept">Accept</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  #consent-banner {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    width: 300px;
+  }
+  .consent-card {
+    background: var(--green-900);
+    border: 1px solid var(--green-700);
+    border-radius: 10px;
+    padding: 1.25rem 1.25rem 1rem;
+  }
+  .consent-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--green-100);
+    margin-bottom: 0.5rem;
+  }
+  .consent-body {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--green-300);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  .consent-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .consent-buttons button {
+    flex: 1;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    padding: 0.5rem 0;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid var(--green-600);
+    transition: background 0.2s;
+  }
+  #consent-decline {
+    background: transparent;
+    color: var(--green-300);
+  }
+  #consent-decline:hover { background: var(--green-800); }
+  #consent-accept {
+    background: var(--green-600);
+    color: var(--green-50);
+    border-color: var(--green-500);
+  }
+  #consent-accept:hover { background: var(--green-500); }
+</style>
+
+<script>
+  (function() {
+    var banner = document.getElementById('consent-banner');
+    var stored = localStorage.getItem('ga_consent');
+    if (!stored) {
+      banner.style.display = 'block';
+    }
+    document.getElementById('consent-accept').addEventListener('click', function() {
+      localStorage.setItem('ga_consent', 'granted');
+      banner.style.display = 'none';
+      window.loadGA();
+    });
+    document.getElementById('consent-decline').addEventListener('click', function() {
+      localStorage.setItem('ga_consent', 'denied');
+      banner.style.display = 'none';
+    });
+  })();
+</script>
+
 <!-- ── NAVIGATION ── -->
 <nav>
   <div class="nav-inner">
@@ -1238,7 +1323,7 @@
   <a href="#articles" onclick="toggleMenu()">Articles</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="https://www.linkedin.com/in/richardhazlett/" target="_blank" rel="noopener">LinkedIn ↗</a>
-  <a href="https://www.trustpilot.com/review/curaleafclinic.com?search=hazlett" target="_blank" rel="noopener"><img src="Trustpilot_Logo.png" alt="Trustpilot" style="height:1.1rem; vertical-align:middle;"></a></li>
+<a href="https://www.trustpilot.com/review/curaleafclinic.com?search=hazlett" target="_blank" rel="noopener"><img src="Trustpilot_Logo.png" alt="Trustpilot" style="height:1.1rem; vertical-align:middle;"></a>
 </div>
 
 <!-- ── HERO ── -->
