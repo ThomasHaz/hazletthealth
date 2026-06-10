@@ -1,25 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B6E5QKPL79"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  gtag('config', 'G-B6E5QKPL79');
+<!-- Umami: always loads, no consent needed -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="94ff5a8c-d101-47c1-869c-12e828f33646"></script>
+
+<!-- GA4: only loads after consent -->
+<script>
+  (function() {
+    if (localStorage.getItem('ga_consent') === 'granted') {
+      loadGA();
+    }
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-B6E5QKPL79';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-B6E5QKPL79');
+    }
+    window.loadGA = loadGA;
+  })();
 </script>
 
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="94ff5a8c-d101-47c1-869c-12e828f33646"></script>
-  <meta property="og:title" content="Dr Richard Hazlett — Medical Cannabis Physician">
-  <meta name="google-site-verification" content="ysXS038J7iywo2-SA1ebm3s4ucv2kUdtwzBLC1jcPUc" />
+<meta name="google-site-verification" content="ysXS038J7iywo2-SA1ebm3s4ucv2kUdtwzBLC1jcPUc" />
+<meta property="og:title" content="Dr Richard Hazlett — Medical Cannabis Physician">
 <meta property="og:description" content="Clinical commentary, research discussion, and reflections on the practice of cannabis medicine.">
 <meta property="og:url" content="https://hazletthealth.co.uk">
 <meta property="og:type" content="website">
 <meta name="description" content="Clinical commentary, research discussion, and reflections on the practice of cannabis medicine — written by Dr Richard Hazlett, GP and medical cannabis physician.">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Dr Richard Hazlett — Medical Cannabis Physician</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
