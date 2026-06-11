@@ -2031,6 +2031,7 @@ const url = encodeURIComponent(window.location.href);
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   document.getElementById('modalContent').scrollTop = 0;
+document.getElementById('modalOverlay').scrollTop = 0;
   loadComments(a, pageUrl);
 }
 
